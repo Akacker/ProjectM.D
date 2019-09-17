@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.projectmd">
+
+<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+<uses-permission android:name="android.permission.READ_PROFILE" />
+<uses-permission android:name="android.permission.READ_CONTACTS" />
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.CALL_PHONE" />
+
+<application
+    android:name="android.support.multidex.MultiDexApplication"
+    android:largeHeap="true"
+    android:usesCleartextTraffic="true"
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_final_logo"
+    android:label="Project, M.D."
+    android:roundIcon="@mipmap/ic_final_logo_round"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme">
+    <!-- Reference to PDFTron license key -->
+
+    <meta-data
+        android:name="pdftron_license_key"
+        android:value="${pdftronLicenseKey}"/>
+    <!-- Document viewer activity declaration-->
+
+    <activity android:name="com.pdftron.pdf.controls.DocumentActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+        android:windowSoftInputMode="adjustPan"
+        android:theme="@style/CustomAppTheme"/>
+
+
+    <activity
+        android:name=".StartHereActivity"
+        android:label="@string/title_activity_start_here"
+        android:theme="@style/AppTheme"></activity>
+    <activity android:name=".MainActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity android:name=".LoginActivity" />
+    <activity android:name=".SignUpActivity" />
+
+    <meta-data
+        android:name="preloaded_fonts"
+        android:resource="@array/preloaded_fonts" />
+</application>
+
+</manifest>
